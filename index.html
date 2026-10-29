@@ -1,63 +1,263 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080a0f">
-<title>UCL Index — Champions League Stats</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta name="description" content="Portfolio of someone, a software developer focused on analytical thinking and practical problem-solving.">
+  <title>someone.dev — Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav">
-<a class="brand" href="#top"><span class="brand-mark">U</span> UCL<span class="brand-muted">INDEX</span></a>
-<nav><a href="#standings">Standings</a><a href="#fixtures">Fixtures</a><a href="#stats">Stats</a></nav>
-<div class="season">MEN’S LEAGUE PHASE <span>2026/27</span></div>
-</div></header>
-<main id="top">
-<section class="hero wrap">
-<div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> EUROPEAN CLUB FOOTBALL / DATA HUB</p>
-<h1>Every match.<br><span>Every number.</span></h1>
-<p class="hero-sub">The Champions League, mapped through standings, team performance, form, goals, and upcoming fixtures.</p>
-<div class="hero-buttons"><a class="button primary" href="#standings">Explore standings <span>↓</span></a><a class="button secondary" href="#fixtures">Upcoming fixtures <span>↗</span></a></div>
-<p class="source-note">DATA SNAPSHOT · 29 OCT 2026 · AFTER MATCHDAY 3</p></div>
-<div class="hero-side">
-<div class="orbital" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="orb-core">UCL<span>26/27</span></div><i class="orb-dot dot-one"></i><i class="orb-dot dot-two"></i><i class="orb-dot dot-three"></i></div>
-<div class="hero-side-caption"><span class="mono">36 CLUBS</span><span class="mono">8 MATCHDAYS</span><span class="mono">ONE TABLE</span></div>
-</div>
-</section>
-<section class="wrap summary" id="stats">
-<div class="summary-card"><span class="summary-label">CLUBS</span><strong id="clubCount">36</strong><small>League phase</small></div>
-<div class="summary-card"><span class="summary-label">MATCHES PLAYED</span><strong id="matchesPlayed">54</strong><small>3 rounds complete</small></div>
-<div class="summary-card"><span class="summary-label">GOALS SCORED</span><strong id="goalsTotal">—</strong><small>Across all teams</small></div>
-<div class="summary-card"><span class="summary-label">TOP ATTACK</span><strong id="topAttack">Paris</strong><small id="topAttackMeta">14 goals scored</small></div>
-</section>
-<section class="section wrap" id="standings">
-<div class="section-title"><div><p class="eyebrow">01 / LEAGUE TABLE</p><h2>All clubs. <span>One race.</span></h2></div><p class="section-desc">Search teams, filter by country, and compare every team’s league-phase record.</p></div>
-<div class="table-toolbar">
-<label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search club…" autocomplete="off" aria-label="Search teams"></label>
-<select id="countryFilter" aria-label="Filter by country"><option value="">All countries</option></select>
-<div class="table-count" id="tableCount">36 teams</div>
-</div>
-<div class="table-wrap"><table><thead><tr><th>#</th><th class="team-col">Club</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead><tbody id="standingsBody"></tbody></table></div>
-<div class="table-legend"><span><i class="legend-dot direct"></i> Top 8 · Round of 16</span><span><i class="legend-dot playoff"></i> 9–24 · Play-offs</span><span><i class="legend-dot out"></i> 25–36 · Currently outside qualification</span></div>
-<p class="small-note">Standings are a snapshot, not live data. Team order and points may change after the next matchday. Tie-breakers follow UEFA competition rules. <a href="https://www.uefa.com/uefachampionsleague/standings/" target="_blank" rel="noreferrer">Check official UEFA table ↗</a></p>
-</section>
-<section class="section alt" id="fixtures"><div class="wrap">
-<div class="section-title"><div><p class="eyebrow">02 / NEXT UP</p><h2>Fixtures <span>to watch.</span></h2></div><p class="section-desc">The next scheduled league-phase matchdays. Times below are listed in Central European Time (CET).</p></div>
-<div class="fixture-grid" id="fixtureGrid"></div>
-<p class="small-note">Fixture information can change. <a href="https://www.uefa.com/uefachampionsleague/fixtures-results/" target="_blank" rel="noreferrer">View official fixtures ↗</a></p>
-</div></section>
-<section class="section wrap insights">
-<div class="section-title"><div><p class="eyebrow">03 / QUICK READ</p><h2>The numbers <span>behind the table.</span></h2></div><p class="section-desc">A quick snapshot from the current table, calculated from the displayed team records.</p></div>
-<div class="insight-grid">
-<article class="insight-card"><span class="insight-kicker">MOST GOALS</span><div class="insight-main"><div><h3 id="mostGoalsName">Paris Saint-Germain</h3><p>Most productive attack so far</p></div><strong id="mostGoalsValue">14</strong></div><div class="bar-track"><i id="mostGoalsBar"></i></div></article>
-<article class="insight-card"><span class="insight-kicker">BEST DEFENCE</span><div class="insight-main"><div><h3 id="bestDefName">Stuttgart</h3><p>Fewest goals conceded</p></div><strong id="bestDefValue">2</strong></div><div class="bar-track"><i id="bestDefBar"></i></div></article>
-<article class="insight-card"><span class="insight-kicker">TOP GOAL DIFFERENCE</span><div class="insight-main"><div><h3 id="bestGdName">Paris Saint-Germain</h3><p>Goals for minus goals against</p></div><strong id="bestGdValue">+9</strong></div><div class="bar-track"><i id="bestGdBar"></i></div></article>
-<article class="insight-card"><span class="insight-kicker">UNBEATEN</span><div class="insight-main"><div><h3 id="unbeatenCount">8 clubs</h3><p>Still without a league-phase defeat</p></div><strong>0L</strong></div><div class="bar-track"><i id="unbeatenBar"></i></div></article>
-</div>
-</section>
-<section class="wrap final-cta"><div><p class="eyebrow">KEEP EXPLORING</p><h2>The story changes<br><span>every matchday.</span></h2></div><a class="button primary" href="https://www.uefa.com/uefachampionsleague/" target="_blank" rel="noreferrer">Visit UEFA.com <span>↗</span></a></section>
-</main>
-<footer><div class="wrap footer-row"><a class="brand" href="#top"><span class="brand-mark">U</span> UCL<span class="brand-muted">INDEX</span></a><p>Made for football fans who love the details.</p><span class="mono">UNOFFICIAL FAN DASHBOARD · © <b id="year"></b></span></div></footer>
-</body></html>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="wordmark" href="#home" aria-label="someone.dev home">someone<span>.dev</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation menu">
+        <span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#beyond">Beyond Code</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-pad" id="home">
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> SOFTWARE DEVELOPER <span class="eyebrow-divider">/</span> OPEN TO OPPORTUNITIES</p>
+          <h1>Turning complex problems into <span class="accent-text">elegant solutions.</span></h1>
+          <p class="hero-intro">Hi, I’m <strong>someone</strong> — a software developer driven by analytical thinking, logical problem-solving, and building digital experiences that make a difference.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my projects <span aria-hidden="true">↘</span></a>
+            <a class="button button-secondary" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta">
+            <!-- Customize this availability status to reflect your real situation. -->
+            <span class="availability"><span class="status-dot"></span> <span data-editable="availability">Available for opportunities</span></span>
+            <span class="mono muted">BASED ON CURIOSITY. BUILT WITH INTENT.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Decorative code terminal and connected-node illustration">
+          <div class="visual-topline"><span>THINK / BUILD / REFINE</span><span class="mono">SYS.001</span></div>
+          <div class="node-field" aria-hidden="true">
+            <svg viewBox="0 0 520 340" role="img" aria-label="Abstract connected nodes">
+              <defs>
+                <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#333a45"/></pattern>
+              </defs>
+              <rect width="520" height="340" fill="url(#dots)"/>
+              <g stroke="#34404e" stroke-width="1.2" fill="none">
+                <path d="M55 72 L172 126 L276 62 L392 124 L462 67"/>
+                <path d="M172 126 L145 238 L276 270 L392 124 L420 250"/>
+                <path d="M55 72 L64 208 L145 238"/>
+                <path d="M276 62 L276 170 L392 124"/>
+                <path d="M276 170 L276 270 L420 250"/>
+              </g>
+              <g fill="#0a0b0e" stroke="#6e9bff" stroke-width="1.6">
+                <circle cx="55" cy="72" r="5"/><circle cx="172" cy="126" r="6"/><circle cx="276" cy="62" r="5"/>
+                <circle cx="392" cy="124" r="7"/><circle cx="462" cy="67" r="4"/><circle cx="64" cy="208" r="4"/>
+                <circle cx="145" cy="238" r="5"/><circle cx="276" cy="170" r="8"/><circle cx="276" cy="270" r="5"/><circle cx="420" cy="250" r="5"/>
+              </g>
+              <circle cx="276" cy="170" r="22" fill="#6e9bff" opacity=".08"/>
+              <circle cx="276" cy="170" r="13" fill="none" stroke="#6e9bff" stroke-dasharray="3 4"/>
+            </svg>
+            <span class="field-label label-a">01 / ANALYZE</span>
+            <span class="field-label label-b">02 / CONNECT</span>
+            <span class="field-label label-c">03 / SOLVE</span>
+          </div>
+          <div class="terminal">
+            <div class="terminal-head"><span class="terminal-lights"><i></i><i></i><i></i></span><span class="mono">approach.js</span><span class="mono terminal-live">● LIVE</span></div>
+            <pre><code><span class="code-muted">const</span> approach = {
+  <span class="code-key">understand</span>: <span class="code-string">"the problem"</span>,
+  <span class="code-key">breakDown</span>: <span class="code-string">"complexity"</span>,
+  <span class="code-key">build</span>: <span class="code-string">"with purpose"</span>,
+  <span class="code-key">improve</span>: <span class="code-string">true</span>
+};
+
+<span class="code-comment">// good solutions start with good questions</span>
+<span class="code-accent">approach.execute();</span><span class="cursor">▍</span></code></pre>
+          </div>
+          <div class="visual-index mono">FIG 01 <span>— A WAY OF THINKING</span></div>
+        </div>
+      </div>
+      <a class="scroll-cue container" href="#about"><span class="scroll-line"></span> SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="section section-pad" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 / A LITTLE ABOUT ME</p>
+          <h2>More than<br><span class="muted-heading">just code.</span></h2>
+        </div>
+        <div class="about-layout">
+          <div class="about-main reveal">
+            <p class="lead">I see software development as a practice of asking better questions, understanding the details, and turning ideas into useful solutions.</p>
+            <p class="body-copy">My approach starts with listening and analysis, then moves through structured reasoning, thoughtful implementation, and refinement. I value code that is understandable, maintainable, and built around a real need. Every project is an opportunity to learn something and make the next solution better.</p>
+            <div class="about-note"><span class="note-mark">↳</span><span class="mono">CURRENT FOCUS</span><span>Learning by building, one problem at a time.</span></div>
+          </div>
+          <div class="qualities">
+            <article class="quality-card reveal">
+              <span class="quality-number mono">01</span><div><h3>Analytical thinker</h3><p>I enjoy breaking complex challenges into smaller, manageable problems and finding logical, efficient solutions.</p></div><span class="quality-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="quality-card reveal">
+              <span class="quality-number mono">02</span><div><h3>Problem solver</h3><p>I approach development with curiosity, attention to detail, and a focus on practical, maintainable solutions.</p></div><span class="quality-arrow" aria-hidden="true">↗</span>
+            </article>
+            <article class="quality-card reveal">
+              <span class="quality-number mono">03</span><div><h3>Continuous learner</h3><p>I’m always exploring technologies, improving my skills, and looking for better ways to build software.</p></div><span class="quality-arrow" aria-hidden="true">↗</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-pad section-alt" id="skills">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div><p class="eyebrow">02 / THE TOOLKIT</p><h2>Tools of <span class="muted-heading">my trade.</span></h2></div>
+          <p class="section-side-note">A growing toolkit, chosen to solve problems—not to fill a list.</p>
+        </div>
+        <div class="skills-layout">
+          <div class="skills-groups">
+            <article class="skill-group reveal"><div class="skill-group-head"><span class="mono">A / 01</span><h3>Programming languages</h3></div><div class="tag-list"><span class="skill-tag editable-skill">[Language]</span><span class="skill-tag editable-skill">[Language]</span><span class="skill-tag editable-skill">[Language]</span></div><p class="skill-hint">Replace bracketed labels with languages you’ve used.</p></article>
+            <article class="skill-group reveal"><div class="skill-group-head"><span class="mono">A / 02</span><h3>Frontend development</h3></div><div class="tag-list"><span class="skill-tag editable-skill">[Technology]</span><span class="skill-tag editable-skill">[Framework]</span><span class="skill-tag editable-skill">[Tool]</span></div></article>
+            <article class="skill-group reveal"><div class="skill-group-head"><span class="mono">A / 03</span><h3>Backend development</h3></div><div class="tag-list"><span class="skill-tag editable-skill">[Language / Runtime]</span><span class="skill-tag editable-skill">[Framework]</span></div></article>
+            <article class="skill-group reveal"><div class="skill-group-head"><span class="mono">A / 04</span><h3>Databases</h3></div><div class="tag-list"><span class="skill-tag editable-skill">[Database]</span><span class="skill-tag editable-skill">[Database]</span></div></article>
+            <article class="skill-group reveal"><div class="skill-group-head"><span class="mono">A / 05</span><h3>Developer tools</h3></div><div class="tag-list"><span class="skill-tag editable-skill">[Version control]</span><span class="skill-tag editable-skill">[IDE]</span><span class="skill-tag editable-skill">[Tool]</span></div></article>
+          </div>
+          <aside class="core-panel reveal">
+            <p class="eyebrow">THE FOUNDATION</p><h3>How I think<br>is part of what I build.</h3>
+            <p class="body-copy">Tools change. A clear approach to problems keeps paying off.</p>
+            <ul class="core-list">
+              <li><span>01</span> Analytical thinking <i>↗</i></li>
+              <li><span>02</span> Logical reasoning <i>↗</i></li>
+              <li><span>03</span> Problem-solving <i>↗</i></li>
+              <li><span>04</span> Debugging <i>↗</i></li>
+              <li><span>05</span> Structured thinking <i>↗</i></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-pad" id="projects">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div><p class="eyebrow">03 / SELECTED WORK</p><h2>Ideas into <span class="muted-heading">implementation.</span></h2></div>
+          <p class="section-side-note">Sample project cards below. Replace them with real work before publishing.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card project-featured reveal">
+            <div class="project-art art-dashboard">
+              <div class="art-browser"><span></span><span></span><span></span><b>PROJECT / ALPHA</b></div>
+              <div class="dashboard-mock">
+                <div class="mock-sidebar"><i></i><i></i><i></i><i></i></div>
+                <div class="mock-content"><div class="mock-title"></div><div class="mock-stats"><i></i><i></i><i></i></div><div class="mock-chart"><svg viewBox="0 0 360 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0 88 C38 80 42 40 78 57 S126 89 160 48 S211 63 245 24 S309 45 360 8" fill="none" stroke="#8fb0ff" stroke-width="2"/><path d="M0 88 C38 80 42 40 78 57 S126 89 160 48 S211 63 245 24 S309 45 360 8 L360 110 L0 110Z" fill="#6e9bff" opacity=".09"/></svg></div></div>
+              </div>
+              <span class="art-stamp mono">CONCEPT PREVIEW</span>
+            </div>
+            <div class="project-info"><div class="project-meta"><span class="mono">PROJECT 01 / WEB APPLICATION</span><span class="project-status">PLACEHOLDER</span></div><h3>Project Alpha</h3><p class="body-copy"><strong>Challenge:</strong> [Describe the user problem]. <strong>Approach:</strong> [Explain the key idea and how the application helps.]</p><div class="project-tags"><span>[Technology]</span><span>[Technology]</span><span>[Technology]</span></div><div class="project-links"><a href="#contact" data-placeholder-link>GitHub repository <span>↗</span></a><a href="#contact" data-placeholder-link>Live demo <span>↗</span></a></div></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-logic">
+              <div class="logic-grid" aria-hidden="true"><div class="logic-node node-start">INPUT</div><div class="logic-line"></div><div class="logic-node node-decision">LOGIC</div><div class="logic-branches"><i></i><i></i></div><div class="logic-results"><span>PATH A</span><span>PATH B</span></div></div><span class="art-stamp mono">SYSTEM / FLOW</span>
+            </div>
+            <div class="project-info"><div class="project-meta"><span class="mono">PROJECT 02 / PROBLEM-SOLVING TOOL</span><span class="project-status">PLACEHOLDER</span></div><h3>Project Beta</h3><p class="body-copy"><strong>Challenge:</strong> [What needed to be simplified?] <strong>Approach:</strong> [Describe the logic, workflow, or decision process.]</p><div class="project-tags"><span>[Language]</span><span>[Algorithm]</span></div><div class="project-links"><a href="#contact" data-placeholder-link>GitHub repository <span>↗</span></a><a href="#contact" data-placeholder-link>Live demo <span>↗</span></a></div></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-art art-code">
+              <div class="code-sheet"><p><span>01</span> <b>function</b> solve(problem) {</p><p><span>02</span> &nbsp;&nbsp;<em>const</em> context = analyze(problem);</p><p><span>03</span> &nbsp;&nbsp;<em>const</em> plan = structure(context);</p><p><span>04</span> &nbsp;&nbsp;<b>return</b> build(plan);</p><p><span>05</span> }</p><div class="code-sheet-footer mono">CLEAN LOGIC / CLEAR INTENT</div></div><span class="art-stamp mono">BUILD / ITERATE</span>
+            </div>
+            <div class="project-info"><div class="project-meta"><span class="mono">PROJECT 03 / SOFTWARE PROJECT</span><span class="project-status">PLACEHOLDER</span></div><h3>Project Gamma</h3><p class="body-copy"><strong>Challenge:</strong> [Describe the goal]. <strong>Approach:</strong> [Explain the implementation and what you learned.]</p><div class="project-tags"><span>[Technology]</span><span>[Tool]</span></div><div class="project-links"><a href="#contact" data-placeholder-link>GitHub repository <span>↗</span></a><a href="#contact" data-placeholder-link>Live demo <span>↗</span></a></div></div>
+          </article>
+        </div>
+        <p class="project-footnote mono">NOTE / THESE ARE SAMPLE CONTENT BLOCKS, NOT CLAIMS OF COMPLETED WORK.</p>
+      </div>
+    </section>
+
+    <section class="section section-pad process-section" id="approach">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">04 / THE METHOD</p><h2>Think clearly.<br><span class="muted-heading">Build intelligently.</span></h2></div>
+        <p class="process-intro reveal">Good software rarely starts with typing. It starts by understanding what actually needs to be solved.</p>
+        <div class="process-track">
+          <article class="process-step reveal"><span class="process-number">01</span><div class="process-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="17" r="9"/><path d="m24 24 8 8M11 17h12M17 11v12"/></svg></div><h3>Analyze</h3><p>Understand the problem, ask useful questions, and identify the requirements.</p><span class="mono step-foot">DEFINE THE WHY</span></article>
+          <article class="process-step reveal"><span class="process-number">02</span><div class="process-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="6" width="12" height="10" rx="2"/><rect x="23" y="24" width="12" height="10" rx="2"/><path d="M17 11h6v18M17 29h6"/></svg></div><h3>Strategize</h3><p>Break the challenge into manageable components and plan a clear route forward.</p><span class="mono step-foot">MAP THE PATH</span></article>
+          <article class="process-step reveal"><span class="process-number">03</span><div class="process-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="m14 12-8 8 8 8M26 12l8 8-8 8M23 7l-6 26"/></svg></div><h3>Build</h3><p>Implement a practical solution with readable code and maintainability in mind.</p><span class="mono step-foot">MAKE IT REAL</span></article>
+          <article class="process-step reveal"><span class="process-number">04</span><div class="process-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M32 17a13 13 0 0 0-23-7L5 14M5 6v8h8M8 23a13 13 0 0 0 23 7l4-4m0 8v-8h-8"/></svg></div><h3>Refine</h3><p>Test, debug, learn from the result, and improve the solution step by step.</p><span class="mono step-foot">MAKE IT BETTER</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-pad football-section" id="beyond">
+      <div class="container football-layout">
+        <div class="football-art reveal" aria-label="Decorative football tactics board">
+          <div class="pitch-label mono">TACTICAL BOARD / 4—3—3</div>
+          <svg viewBox="0 0 440 520" role="img" aria-label="Football pitch with tactical formation markers">
+            <rect x="22" y="18" width="396" height="484" rx="3" fill="none" stroke="#4c5b52" stroke-width="1.2"/>
+            <path d="M22 260H418 M110 18V112H330V18 M110 502V408H330V502 M166 18V55H274V18 M166 502V465H274V502" fill="none" stroke="#4c5b52" stroke-width="1.2"/>
+            <circle cx="220" cy="260" r="58" fill="none" stroke="#4c5b52" stroke-width="1.2"/><circle cx="220" cy="260" r="3" fill="#6e9bff"/>
+            <g stroke="#6e9bff" stroke-width="1.2" fill="none" stroke-dasharray="4 6" opacity=".75">
+              <path d="M220 82L105 175L220 244L335 175L220 82"/>
+              <path d="M105 175L145 295L220 350L295 295L335 175"/>
+              <path d="M145 295L85 410M295 295L355 410"/>
+            </g>
+            <g fill="#0b0d11" stroke="#91b0ff" stroke-width="2">
+              <circle cx="220" cy="82" r="10"/><circle cx="105" cy="175" r="10"/><circle cx="220" cy="175" r="10"/><circle cx="335" cy="175" r="10"/>
+              <circle cx="145" cy="295" r="10"/><circle cx="220" cy="350" r="10"/><circle cx="295" cy="295" r="10"/>
+              <circle cx="85" cy="410" r="10"/><circle cx="180" cy="410" r="10"/><circle cx="260" cy="410" r="10"/><circle cx="355" cy="410" r="10"/>
+            </g>
+            <g fill="#dbe6ff" font-family="monospace" font-size="9" text-anchor="middle">
+              <text x="220" y="85">9</text><text x="105" y="178">11</text><text x="220" y="178">10</text><text x="335" y="178">7</text>
+              <text x="145" y="298">8</text><text x="220" y="353">6</text><text x="295" y="298">4</text>
+              <text x="85" y="413">3</text><text x="180" y="413">5</text><text x="260" y="413">2</text><text x="355" y="413">1</text>
+            </g>
+          </svg>
+          <div class="pitch-legend"><span><i></i> POSITION</span><span><i></i> MOVEMENT</span><span class="mono">ILLUSTRATIVE FORMATION</span></div>
+        </div>
+        <div class="football-copy reveal">
+          <p class="eyebrow">05 / OUTSIDE THE EDITOR</p><h2>Beyond code:<br><span class="muted-heading">football.</span></h2>
+          <p class="lead">A different kind of problem-solving happens on the pitch.</p>
+          <p class="body-copy">When I’m away from the keyboard, you’ll probably find me enjoying football. The game is a reminder that strategy, teamwork, discipline, and quick decisions matter — qualities I also value when building software.</p>
+          <div class="football-principles"><div><span class="mono">01</span><strong>Read the game.</strong><small>Understand the bigger picture.</small></div><div><span class="mono">02</span><strong>Trust the team.</strong><small>Good outcomes are rarely solo efforts.</small></div><div><span class="mono">03</span><strong>Adapt quickly.</strong><small>Learn, respond, and keep moving.</small></div></div>
+          <p class="football-signoff mono">SAME MINDSET. DIFFERENT FIELD.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-pad contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="contact-copy"><p class="eyebrow">06 / START A CONVERSATION</p><h2>Let’s build<br><span class="accent-text">something meaningful.</span></h2><p class="body-copy">Have a project idea, an opportunity, or a problem worth solving? I’d be glad to hear from you.</p><a class="button button-primary contact-main-cta" href="mailto:your.email@example.com" data-email-link>Get in touch <span aria-hidden="true">↗</span></a></div>
+          <div class="contact-details">
+            <div class="contact-row"><span class="mono">EMAIL</span><a href="mailto:your.email@example.com" data-email-link data-email-text>your.email@example.com ↗</a></div>
+            <div class="contact-row"><span class="mono">GITHUB</span><a href="https://github.com/your-username" target="_blank" rel="noreferrer" data-placeholder-link>github.com/your-username ↗</a></div>
+            <div class="contact-row"><span class="mono">LINKEDIN</span><a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noreferrer" data-placeholder-link>linkedin.com/in/your-username ↗</a></div>
+            <p class="contact-note">Recruiters, fellow developers, and curious minds are welcome.</p>
+          </div>
+        </div>
+        <p class="form-note mono">CONTACT LINKS ARE PLACEHOLDERS — UPDATE THEM BEFORE PUBLISHING.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="wordmark" href="#home">someone<span>.dev</span></a>
+      <p class="footer-line">Built with logic, curiosity, and a love for clean code.</p>
+      <div class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#beyond">Beyond code</a><a href="#contact">Contact ↗</a></div>
+    </div>
+    <div class="container footer-bottom"><span class="mono">© <span id="year">2026</span> SOMEONE. ALL RIGHTS RESERVED.</span><a class="mono back-top" href="#top">BACK TO TOP ↑</a><span class="mono">DESIGNED WITH INTENTION.</span></div>
+  </footer>
+</body>
+</html>
