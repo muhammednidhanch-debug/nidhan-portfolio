@@ -1,11 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>harykane-nidhan</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080a0f">
+<title>UCL Index — Champions League Stats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
 </head>
 <body>
-    
-</body>
-</html>1
+<header class="topbar"><div class="wrap nav">
+<a class="brand" href="#top"><span class="brand-mark">U</span> UCL<span class="brand-muted">INDEX</span></a>
+<nav><a href="#standings">Standings</a><a href="#fixtures">Fixtures</a><a href="#stats">Stats</a></nav>
+<div class="season">MEN’S LEAGUE PHASE <span>2026/27</span></div>
+</div></header>
+<main id="top">
+<section class="hero wrap">
+<div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> EUROPEAN CLUB FOOTBALL / DATA HUB</p>
+<h1>Every match.<br><span>Every number.</span></h1>
+<p class="hero-sub">The Champions League, mapped through standings, team performance, form, goals, and upcoming fixtures.</p>
+<div class="hero-buttons"><a class="button primary" href="#standings">Explore standings <span>↓</span></a><a class="button secondary" href="#fixtures">Upcoming fixtures <span>↗</span></a></div>
+<p class="source-note">DATA SNAPSHOT · 29 OCT 2026 · AFTER MATCHDAY 3</p></div>
+<div class="hero-side">
+<div class="orbital" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="orb-core">UCL<span>26/27</span></div><i class="orb-dot dot-one"></i><i class="orb-dot dot-two"></i><i class="orb-dot dot-three"></i></div>
+<div class="hero-side-caption"><span class="mono">36 CLUBS</span><span class="mono">8 MATCHDAYS</span><span class="mono">ONE TABLE</span></div>
+</div>
+</section>
+<section class="wrap summary" id="stats">
+<div class="summary-card"><span class="summary-label">CLUBS</span><strong id="clubCount">36</strong><small>League phase</small></div>
+<div class="summary-card"><span class="summary-label">MATCHES PLAYED</span><strong id="matchesPlayed">54</strong><small>3 rounds complete</small></div>
+<div class="summary-card"><span class="summary-label">GOALS SCORED</span><strong id="goalsTotal">—</strong><small>Across all teams</small></div>
+<div class="summary-card"><span class="summary-label">TOP ATTACK</span><strong id="topAttack">Paris</strong><small id="topAttackMeta">14 goals scored</small></div>
+</section>
+<section class="section wrap" id="standings">
+<div class="section-title"><div><p class="eyebrow">01 / LEAGUE TABLE</p><h2>All clubs. <span>One race.</span></h2></div><p class="section-desc">Search teams, filter by country, and compare every team’s league-phase record.</p></div>
+<div class="table-toolbar">
+<label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search club…" autocomplete="off" aria-label="Search teams"></label>
+<select id="countryFilter" aria-label="Filter by country"><option value="">All countries</option></select>
+<div class="table-count" id="tableCount">36 teams</div>
+</div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th class="team-col">Club</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr></thead><tbody id="standingsBody"></tbody></table></div>
+<div class="table-legend"><span><i class="legend-dot direct"></i> Top 8 · Round of 16</span><span><i class="legend-dot playoff"></i> 9–24 · Play-offs</span><span><i class="legend-dot out"></i> 25–36 · Currently outside qualification</span></div>
+<p class="small-note">Standings are a snapshot, not live data. Team order and points may change after the next matchday. Tie-breakers follow UEFA competition rules. <a href="https://www.uefa.com/uefachampionsleague/standings/" target="_blank" rel="noreferrer">Check official UEFA table ↗</a></p>
+</section>
+<section class="section alt" id="fixtures"><div class="wrap">
+<div class="section-title"><div><p class="eyebrow">02 / NEXT UP</p><h2>Fixtures <span>to watch.</span></h2></div><p class="section-desc">The next scheduled league-phase matchdays. Times below are listed in Central European Time (CET).</p></div>
+<div class="fixture-grid" id="fixtureGrid"></div>
+<p class="small-note">Fixture information can change. <a href="https://www.uefa.com/uefachampionsleague/fixtures-results/" target="_blank" rel="noreferrer">View official fixtures ↗</a></p>
+</div></section>
+<section class="section wrap insights">
+<div class="section-title"><div><p class="eyebrow">03 / QUICK READ</p><h2>The numbers <span>behind the table.</span></h2></div><p class="section-desc">A quick snapshot from the current table, calculated from the displayed team records.</p></div>
+<div class="insight-grid">
+<article class="insight-card"><span class="insight-kicker">MOST GOALS</span><div class="insight-main"><div><h3 id="mostGoalsName">Paris Saint-Germain</h3><p>Most productive attack so far</p></div><strong id="mostGoalsValue">14</strong></div><div class="bar-track"><i id="mostGoalsBar"></i></div></article>
+<article class="insight-card"><span class="insight-kicker">BEST DEFENCE</span><div class="insight-main"><div><h3 id="bestDefName">Stuttgart</h3><p>Fewest goals conceded</p></div><strong id="bestDefValue">2</strong></div><div class="bar-track"><i id="bestDefBar"></i></div></article>
+<article class="insight-card"><span class="insight-kicker">TOP GOAL DIFFERENCE</span><div class="insight-main"><div><h3 id="bestGdName">Paris Saint-Germain</h3><p>Goals for minus goals against</p></div><strong id="bestGdValue">+9</strong></div><div class="bar-track"><i id="bestGdBar"></i></div></article>
+<article class="insight-card"><span class="insight-kicker">UNBEATEN</span><div class="insight-main"><div><h3 id="unbeatenCount">8 clubs</h3><p>Still without a league-phase defeat</p></div><strong>0L</strong></div><div class="bar-track"><i id="unbeatenBar"></i></div></article>
+</div>
+</section>
+<section class="wrap final-cta"><div><p class="eyebrow">KEEP EXPLORING</p><h2>The story changes<br><span>every matchday.</span></h2></div><a class="button primary" href="https://www.uefa.com/uefachampionsleague/" target="_blank" rel="noreferrer">Visit UEFA.com <span>↗</span></a></section>
+</main>
+<footer><div class="wrap footer-row"><a class="brand" href="#top"><span class="brand-mark">U</span> UCL<span class="brand-muted">INDEX</span></a><p>Made for football fans who love the details.</p><span class="mono">UNOFFICIAL FAN DASHBOARD · © <b id="year"></b></span></div></footer>
+</body></html>
